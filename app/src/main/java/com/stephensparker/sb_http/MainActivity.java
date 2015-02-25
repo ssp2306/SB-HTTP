@@ -73,7 +73,6 @@ public class MainActivity extends Activity {
                     txtViewParsedValue.setText(e.toString());
                 }
 
-
                 try{
 
                     jsonObject = new JSONObject(str);
@@ -81,7 +80,7 @@ public class MainActivity extends Activity {
                     JSONObject objectFamily = jsonObject.getJSONObject("FamilyName");
 
                     // get the family name from the JSON object
-                    strParsedValue = "Meet the " + objectFamily.getString("Family") + " clan:\n";
+                    strParsedValue = "Meet the " + objectFamily.getString("Family") + " Clan:\n";
 
                     /// create a sub array from the JSON string
                     JSONObject subObject = objectFamily.getJSONObject("sub");
@@ -96,6 +95,7 @@ public class MainActivity extends Activity {
                         strParsedValue += subArray.getJSONObject(i).getString("gender");
                         strParsedValue += " loves " + subArray.getJSONObject(i).getString("favcolor") + ".\n";
                     }
+                    strParsedValue += "\nJSON file we read:\n" + str;
                     txtViewParsedValue.setText(strParsedValue);
                 } catch ( JSONException e) {
                     e.printStackTrace();
