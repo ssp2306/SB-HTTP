@@ -24,7 +24,7 @@ import org.json.JSONObject;
 
 public class MainActivity extends Activity {
 
-    private Button buttonOpenURL;
+    private Button buttonOpenURL, buttonClear;
     TextView txtViewParsedValue;
     private JSONObject jsonObject;
 
@@ -42,12 +42,32 @@ public class MainActivity extends Activity {
         // find the ID of the TextView
         txtViewParsedValue = (TextView) findViewById(R.id.editTextURLOutput);
         buttonOpenURL = (Button) findViewById(R.id.buttonOpenURL);
+        buttonClear = (Button) findViewById(R.id.buttonClear);
 
-        addListenerOnClick();
+        addListenerOnClickOpenURL();
+        addListenerOnClickClear();
+
     }
-    public void addListenerOnClick() {
+
+    public void addListenerOnClickClear() {
+
+        buttonClear.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+
+               // clear the output view
+                txtViewParsedValue.setText(null);
+            }
+
+        });
+
+    }
+
+    public void addListenerOnClickOpenURL() {
 
         //Select a specific button to bundle it with the action you want
+
 
         buttonOpenURL.setOnClickListener(new View.OnClickListener() {
 
@@ -64,6 +84,8 @@ public class MainActivity extends Activity {
 
                     response = myClient.execute(myConnection);
                     str = EntityUtils.toString(response.getEntity(), "UTF-8");
+                    //strParsedValue = "Opening..." + eURL + "\n";
+                    //txtViewParsedValue.setText(strParsedValue);
 
                 } catch (ClientProtocolException e) {
                     e.printStackTrace();

@@ -21,10 +21,17 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Read the URL and make a family"
+        android:text="Open URL y create family"
         android:id="@+id/buttonOpenURL"
         android:layout_below="@+id/editURL"
         android:layout_alignParentStart="true" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Clear"
+        android:id="@+id/buttonClear"
+        android:layout_below="@+id/editURL"
+        android:layout_toEndOf="@+id/buttonOpenURL" />
 
     <EditText
         android:layout_width="wrap_content"
